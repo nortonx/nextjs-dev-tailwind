@@ -20,19 +20,14 @@ const Form = () => {
   const [user, setUser] = useState({});
 
   const addUserData = (name: string, age: number, email: string) => {
+    console.log("addUserData was called.")
     const userData = {
-      name: name,
-      age: age,
-      email: email
+      name,
+      age,
+      email
     }
-    return userData;
-  }
-
-  useEffect(() => {
-    const userData = addUserData(name, age, email)
-    setUser(userData);
-  }, [])
-  
+    setUser(userData)
+  } 
 
   return (
       <div className="flex h-screen flex-col items-center justify-center">
@@ -68,12 +63,12 @@ const Form = () => {
                 value={email}
               />
               <div className="flex justify-end px-2 pt-2">
-                <Button label="Add data" onClick={addUserData(name, age, email)} />
+                <Button label="Add data" onClick={() => addUserData(name, age, email)} />
               </div>
             </fieldset>
           </div>
           <div className="bg-slate-400 w-4/12 h-full p-2 flex flex-wrap">
-            Data Output: {typeof user}<pre>{JSON.stringify(user)}</pre>
+            Data Output: <pre>{JSON.stringify(user)}</pre>
             <UserInfo />
           </div>
         </div>

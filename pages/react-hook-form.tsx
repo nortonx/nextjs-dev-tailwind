@@ -19,6 +19,15 @@ const ReactHookForm = () => { // TODO: Implement it!
   const [email, setEmail] = useState('');
   const [user, setUser] = useState({});
 
+  const addUserData = (name: string, age: number, email: string) => {
+    const userData = {
+      name,
+      age,
+      email
+    }
+    setUser(userData)
+  }
+
   return (
       <div className="flex h-screen flex-col items-center justify-center">
       <Head>
@@ -53,12 +62,12 @@ const ReactHookForm = () => { // TODO: Implement it!
                 value={email}
               />
               <div className="flex justify-end px-2 pt-2">
-                <Button label="Add data" />
+                <Button label="Add data" onClick={() => addUserData(name, age, email)} />
               </div>
             </fieldset>
           </div>
           <div className="bg-slate-400 w-4/12 h-full p-2 flex flex-wrap">
-            Data Output: {typeof user}<pre>{JSON.stringify(user)}</pre>
+            Data Output: type - {typeof user}<pre>{JSON.stringify(user)}</pre>
             <UserInfo />
           </div>
         </div>

@@ -9,7 +9,7 @@ interface userProps {
 
 const UserInfo = (user: userProps) => {
   return (
-    <div className="flex flex-column border border-zinc-500 p-4">
+    <div className="flex flex-col border border-zinc-500 p-4">
       <div className="w-20 h-20 p-2 relative">image</div>
       <div>{user.name}</div>
       <div>{user.age}</div>
